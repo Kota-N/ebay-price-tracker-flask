@@ -76,7 +76,6 @@ button {
   background: #8797de;
   color: #edf0fd;
   font-size: 30px;
-  border: 5px;
   padding: 20px 0;
   width: 100%;
   font-size: 20px;
@@ -113,4 +112,64 @@ button:active {
 .delete-product-container button {
   background: #f3d7ea;
   color: #ce7fb2;
+}
+
+.table-container {
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.table-container h3 {
+  font-weight: 300;
+}
+
+.tables {
+  margin-top: 30px;
+}
+
+.tables a {
+  text-decoration: none;
+  background: #8797de;
+  color: #edf0fd;
+  font-size: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.tables a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .chart-container {
+    max-width: 90vw;
+    min-width: 90vw;
+  }
+
+  .add-delete-container {
+    max-width: 90vw;
+    min-width: 90vw;
+  }
+
+  .add-product-container {
+    max-width: 90vw;
+    min-width: 90vw;
+  }
+
+  .delete-product-container {
+    max-width: 90vw;
+    min-width: 90vw;
+  }
 }
