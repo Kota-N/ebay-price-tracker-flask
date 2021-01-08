@@ -12,7 +12,9 @@ addBtn.addEventListener('click', async () => {
 
   if (!nameInput.value.trim() == '' || !urlInput.value.trim() == '') {
     if (
-      confirm(`Insert a product?\nName: ${reqData.name}\nURL: '${reqData.url}'`)
+      confirm(
+        `Insert a product?\n\nName: ${reqData.name}\nURL: '${reqData.url}'`
+      )
     ) {
       try {
         const res = await fetch('/ebay_price_tracker/api/products/add', {
@@ -21,7 +23,7 @@ addBtn.addEventListener('click', async () => {
           body: JSON.stringify(reqData),
         });
         const data = await res.json();
-        alert(`Inserted!\n${data}`);
+        alert(`Inserted!\n\n${data.name}`);
         console.log(data);
       } catch (error) {
         console.log(error);
@@ -38,7 +40,7 @@ addBtn.addEventListener('click', async () => {
 deleteBtn.addEventListener('click', async () => {
   const reqData = { name: deleteInput.value };
 
-  if (confirm(`Delete a product?\nName: ${reqData.name}`)) {
+  if (confirm(`Delete a product?\n\nName: ${reqData.name}`)) {
     try {
       const res = await fetch('/ebay_price_tracker/api/products/delete', {
         method: 'POST',
@@ -46,7 +48,7 @@ deleteBtn.addEventListener('click', async () => {
         body: JSON.stringify(reqData),
       });
       const data = await res.json();
-      alert(`Deleted!\n${data}`);
+      alert(`Deleted!\n\n${data.name}`);
       console.log(data);
     } catch (error) {
       console.log(error);
