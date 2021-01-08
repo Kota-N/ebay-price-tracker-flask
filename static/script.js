@@ -23,7 +23,7 @@ addBtn.addEventListener('click', async () => {
           body: JSON.stringify(reqData),
         });
         const data = await res.json();
-        alert(`Inserted!\n\n${data.added_name}`);
+        alert(`Inserted!\n\nInserted item: ${data.added_name}`);
         console.log(data);
       } catch (error) {
         console.log(error);
@@ -48,14 +48,14 @@ deleteBtn.addEventListener('click', async () => {
         body: JSON.stringify(reqData),
       });
       const data = await res.json();
-      alert(`Deleted!\n\n${data.deleted_name}`);
+      alert(`Deleted!\n\nDeleted item: ${data.deleted_name}`);
       console.log(data);
     } catch (error) {
       console.log(error);
       alert(error);
     }
-  }
 
-  deleteInput.value = '';
-  location.reload();
+    deleteInput.value = '';
+    location.reload();
+  }
 });
