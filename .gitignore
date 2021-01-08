@@ -1,0 +1,4 @@
+__pycache__/
+db.sqlite
+venv/
+ebay_price_tracker.wsgi
