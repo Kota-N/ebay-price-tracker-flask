@@ -10,36 +10,48 @@ addBtn.addEventListener('click', async () => {
     url: urlInput.value.trim(),
   };
 
-  try {
-    const res = await fetch('/ebay_price_tracker/api/products/add', {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify(reqData),
-    });
-    const data = await res.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
+  if (!nameInput.value.trim() == '' || !urlInput.value.trim() == '') {
+    if (
+      confirm(`Insert a product?\nName: ${reqData.name}\nURL: '${reqData.url}'`)
+    ) {
+      try {
+        const res = await fetch('/ebay_price_tracker/api/products/add', {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify(reqData),
+        });
+        const data = await res.json();
+        alert(`Inserted!\n${data}`);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+        alert(error);
+      }
 
-  nameInput.value = '';
-  urlInput.value = '';
-  location.reload();
+      nameInput.value = '';
+      urlInput.value = '';
+      location.reload();
+    }
+  } else alert('Cannot insert an empty value');
 });
 
 deleteBtn.addEventListener('click', async () => {
   const reqData = { name: deleteInput.value };
 
-  try {
-    const res = await fetch('/ebay_price_tracker/api/products/delete', {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify(reqData),
-    });
-    const data = await res.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
+  if (confirm(`Delete a product?\nName: ${reqData.name}`)) {
+    try {
+      const res = await fetch('/ebay_price_tracker/api/products/delete', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify(reqData),
+      });
+      const data = await res.json();
+      alert(`Deleted!\n${data}`);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
   }
 
   deleteInput.value = '';
