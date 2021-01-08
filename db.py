@@ -30,14 +30,13 @@ cursor.execute(
     '''
       CREATE TABLE dates(
         id INTEGER PRIMARY KEY,
-        date DATE DEFAULT CURRENT_DATE
+        date DATE DEFAULT CURRENT_DATE UNIQUE
       )
     ''')
 
 cursor.execute("INSERT OR IGNORE INTO products(name, url) VALUES('AKG K702', 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=akg+k702&_sacat=0&LH_BIN=1&LH_ItemCondition=1000&_sop=12')")
 cursor.execute("INSERT OR IGNORE INTO products(name, url) VALUES('AKG C214', 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=akg+c214&_sacat=0&LH_TitleDesc=0&_sop=12&LH_BIN=1&rt=nc&LH_ItemCondition=1000')")
-cursor.execute("INSERT OR IGNORE INTO products(name, url) VALUES('AKG P820', 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=akg+p820&_sacat=0&LH_TitleDesc=0&LH_BIN=1&rt=nc&LH_ItemCondition=1000')")
-cursor.execute("INSERT OR IGNORE INTO products(name, url) VALUES('Focurite Scarlett 2i2 3rd Gen', 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=Focusrite+Scarlett+2i2+3rd+Gen&_sacat=0&LH_TitleDesc=0&LH_BIN=1&rt=nc&LH_ItemCondition=1000')")
+cursor.execute("INSERT OR IGNORE INTO products(name, url) VALUES('Focurite Scarlett 2i2 3rd Gen', 'https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=Focusrite+Scarlett+2i2+3rd+Gen+audio+interface&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=Focusrite+Scarlett+2i2+3rd+Gen&LH_ItemCondition=1000&LH_BIN=1&rt=nc#')")
 
 conn.commit()
 conn.close()
