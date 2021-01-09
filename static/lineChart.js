@@ -69,6 +69,7 @@ const buildDatasets = async (productData, dateData) => {
       data,
       label: productData[i]['name'],
       borderColor: getRandomRGB(),
+      lineTension: 0,
       fill: false,
     };
     datasets.push(config);
@@ -110,6 +111,15 @@ const initChart = async () => {
       title: {
         display: true,
         text: 'Product Prices (eBay)',
+      },
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            return `$${tooltipItem.yLabel
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+          },
+        },
       },
     },
   });
